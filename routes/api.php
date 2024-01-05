@@ -21,7 +21,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 //Route::resource('applicants', ApplicantController::class)->except(['create', 'edit', 'skill', 'save']);
-
+Route::get('/token', [ApplicantController::class, 'token']);
+Route::get('/search', [ApplicantController::class, 'search'])->name('search');
 Route::get('/applicants', [ApplicantController::class, 'index'])->name('applicants');
 Route::post('/add', [ApplicantController::class, 'store'])->name('add');
 Route::patch('/update/{id}', [ApplicantController::class, 'update'])->name('update');

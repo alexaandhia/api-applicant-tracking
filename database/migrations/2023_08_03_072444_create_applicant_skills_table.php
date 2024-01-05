@@ -16,6 +16,10 @@ return new class extends Migration
             $table->foreignId('applicant_id');
             $table->foreignId('skill_id');
             $table->timestamps();
+
+            // Ensure that the length of skill_id is sufficient
+            $table->index('skill_id');
+            $table->foreign('skill_id')->references('id')->on('skills')->onDelete('cascade');
         });
     }
 
